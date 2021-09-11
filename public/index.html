@@ -15,31 +15,54 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Websocket</h1>
+    <h1> Desafío 12: Websocket</h1>
     <div class="container">
         <div class="row">
           <div class="col-12">
-            <h1 class="text-center">Formulario</h1>
+            <h2 class="text-center">Formulario</h2>
             <div id="cargaProductos">
+              
               <label for="product">Producto</label>
               <input type="text" name="product" id="message">
               <label for="price">Price</label>
               <input type="text" name="product" id="price">
-              <label for="thumbnail">Thumbnail</label>
-              <input type="file" name="thumbnail" class="form-control" id="img" />
-              <button id="send">send</button>
+              <label for="price">Img</label>
+              <input type="text" name="product" id="img">
+              <button id="send">Cargar producto</button>
+             
             </div>
-            <div id="output">
+            <div class="section" id="output">
+              <p>Productos cargados recientemente</p>
+
 
             </div>
-            <div id="actions">
+            <div><P>Usuarios conectados</P></div>
+            <div class="section" id="actions">
+              
 
             </div>
+            
+            <script type="text/html" id="myTemplate">
+              <div id="template">
+                <ul>
+                  <% productos.forEach(p => { %>
+                    <li> <%= JSON.stringify(p) %> </li>
+                  <% }); %> 
+                </ul>
+              </div>
+            </script>
+            <div><p>Todos los productos</p></div>
+            <div class="section"  id="toRender">
+              
+            </div>
+            
+
 
           </div>
         </div>
       </div>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ejs@3.1.6/ejs.min.js"></script>
     <script src="index.js"></script>
 </body>
 
